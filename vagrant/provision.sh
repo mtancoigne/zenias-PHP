@@ -26,9 +26,6 @@ PROJECT="my_project" # we would want a name passed to it via te first argument, 
 DB="my_app" # the name of postgreSQL DB we need to provision, maybe $2
 SERVER="fcc-vagrant-php" # Should be the same name as the box, when implementing #29
 
-# Git repos
-export GIT_CAKE3="https://github.com/mtancoigne/zeus-php-cakephp3.git"
-
 # This file is executed by root user - sudo not needed
 # But do not create any directory
 # which vagrant user might need access to later in su mode
@@ -109,9 +106,8 @@ service apache2 restart
 # Adding user vagrant to www-data group for file permissions
 usermod -a -G www-data vagrant
 
-#
-# Here the provision-cake3.sh should be launched if choosen by user.
-#
+# Copying .bashrc
+cat /vagrant/vagrant/bashrc >> /home/vagrant/.bashrc
 
 # All done
 echo "---------------------------------------------"
